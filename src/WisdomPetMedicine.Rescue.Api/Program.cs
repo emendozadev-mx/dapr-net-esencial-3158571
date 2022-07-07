@@ -10,8 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRescueDb(builder.Configuration);
 builder.Services.AddScoped<AdopterApplicationService>();
 builder.Services.AddScoped<IRescueRepository, RescueRepository>();
-builder.Services.AddControllers()
-                .AddDapr();
+builder.Services.AddControllers().AddDapr();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,6 +27,7 @@ if (app.Environment.IsDevelopment())
 app.EnsureRescueDbIsCreated();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
 app.UseCloudEvents();
 app.MapSubscribeHandler();
 app.MapControllers();

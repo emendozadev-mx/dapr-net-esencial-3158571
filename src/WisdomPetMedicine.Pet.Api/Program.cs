@@ -11,8 +11,7 @@ builder.Services.AddPetDb(builder.Configuration);
 builder.Services.AddScoped<IPetRepository, PetRepository>();
 builder.Services.AddScoped<PetApplicationService>();
 builder.Services.AddScoped<IBreedService, FakeBreedService>();
-builder.Services.AddControllers()
-                .AddDapr();
+builder.Services.AddControllers().AddDapr();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
